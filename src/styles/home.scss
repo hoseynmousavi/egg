@@ -944,14 +944,13 @@
 }
 
 .home-navbar-profile-link {
-  width: calc(100% - 170px);
   pointer-events: all;
 }
 
 .home-navbar-profile {
+  padding: 0 16px;
   display: flex;
   align-items: center;
-  width: 100%;
   border-radius: var(--second-radius);
   cursor: pointer;
 }
