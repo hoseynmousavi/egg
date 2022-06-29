@@ -9,7 +9,7 @@ function HomeTimer()
     const isEmpty = !isLoading && list.length === 0
     return (
         <>
-            <div className="home-detail" style={{height: isEmpty || isLoading ? "217px" : "300px"}}>
+            <div className="home-detail" style={{height: isEmpty || isLoading ? "217px" : "325px"}}>
                 <MyLoader className={`home-detail-loading ${isLoading ? "" : "hide"}`}/>
                 {
                     !isLoading ?

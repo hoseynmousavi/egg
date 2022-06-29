@@ -19,7 +19,7 @@ function AddTimerModal({close})
 
     function onChange({value})
     {
-        setSelected({name: eggConstant[value].name, duration_day: value})
+        setSelected({egg_id: value})
     }
 
     function submit()

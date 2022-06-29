@@ -5,9 +5,11 @@ import TimerActions from "../../context/timer/TimerActions"
 import toastManager from "../../helpers/toastManager"
 import {INFO_TOAST} from "../../constant/toastTypes"
 import {TimerContext} from "../../context/timer/TimerReducer"
+import eggConstant from "../../constant/eggConstant"
 
-function HomeTimerItem({timer: {_id, name, created_date, duration_day}})
+function HomeTimerItem({timer: {_id, egg_id, created_date}})
 {
+    const {name, sTemp, sHumidity, hTemp, hHumidity, days} = eggConstant[egg_id]
     const {dispatch} = useContext(TimerContext)
     const [removeLoading, setRemoveLoading] = useState(false)
     const [remain, setRemain] = useState({})
@@ -17,7 +19,7 @@ function HomeTimerItem({timer: {_id, name, created_date, duration_day}})
     {
         function setData()
         {
-            const diff = Math.floor(((new Date(created_date).getTime() + duration_day * 24 * 60 * 60 * 1000) - new Date().getTime()) / 1000)
+            const diff = Math.floor(((new Date(created_date).getTime() + days * 24 * 60 * 60 * 1000) - new Date().getTime()) / 1000)
             const minute = Math.floor(diff / 60 % 60)
             const hour = Math.floor(diff / 60 / 60 % 24)
             const day = Math.floor(diff / 60 / 60 / 24)
@@ -56,6 +58,15 @@ function HomeTimerItem({timer: {_id, name, created_date, duration_day}})
                     <span> ،</span>
                     {new Date(created_date).toLocaleDateString("fa-ir")}
                 </div>
+            </div>
+            <div className="timer-content">
+                دمای هچر: {hTemp}
+                <span> | </span>
+                رطوبت هچر: {hHumidity}
+                <span> | </span>
+                دمای ستر: {sTemp}
+                <span> | </span>
+                رطوبت ستر: {sHumidity}
             </div>
             <div className="timer-remaining">
                 <div className="timer-remaining-item minute">{minute}</div>

@@ -50,7 +50,7 @@ function Select({name, full_title, placeholder, title, items, defaultValue, onCh
 
             {
                 isShowPanel &&
-                <VerticalPanel close={hidePanel}>
+                <VerticalPanel className="dont-gesture" close={hidePanel}>
                     <div className="select-title">{full_title || title}</div>
                     <div className="select-items-cont">
                         {
